@@ -1,5 +1,9 @@
-[![Build Status](https://app.travis-ci.com/ainz713/job4j_cars.svg?branch=main)](https://app.travis-ci.com/ainz713/job4j_cars)
+[![Build Status](https://app.travis-ci.com/ainz713/job4j_cars.svg?branch=master)](https://app.travis-ci.com/ainz713/job4j_cars)
 # job4j_cars
 
+Проект представляет собой площадку продажи машин.
+Для входа необходимо выполнить авторизацию или зарегистрироваться.
+На сайте размещаются объявления. В объявлении содержится: описание, марка машины, тип кузова, фото.
+Объявление имеет статус продано или нет.
 
 
