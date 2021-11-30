@@ -4,18 +4,18 @@ import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
-@Table(name = "kuzov")
-public class Kuzov {
+@Table(name = "body")
+public class Body {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     private String name;
 
-    public static Kuzov of(String name) {
-        Kuzov kuzov = new Kuzov();
-        kuzov.setName(name);
-        return kuzov;
+    public static Body of(String name) {
+        Body body = new Body();
+        body.setName(name);
+        return body;
     }
 
     public int getId() {
@@ -42,8 +42,8 @@ public class Kuzov {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        Kuzov kuzov = (Kuzov) o;
-        return id == kuzov.id;
+        Body body = (Body) o;
+        return id == body.id;
     }
 
     @Override

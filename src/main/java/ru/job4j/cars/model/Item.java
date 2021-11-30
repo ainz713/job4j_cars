@@ -27,8 +27,8 @@ public class Item {
     private Model model;
 
     @ManyToOne
-    @JoinColumn(name = "kuzov_id", nullable = false, updatable = false)
-    private Kuzov kuzov;
+    @JoinColumn(name = "body_id", nullable = false, updatable = false)
+    private Body body;
 
     @OneToOne
     @JoinColumn(name = "photo_id")
@@ -78,12 +78,12 @@ public class Item {
         this.model = model;
     }
 
-    public Kuzov getKuzov() {
-        return kuzov;
+    public Body getBody() {
+        return body;
     }
 
-    public void setKuzov(Kuzov kuzov) {
-        this.kuzov = kuzov;
+    public void setBody(Body body) {
+        this.body = body;
     }
 
     public Photo getPhoto() {
@@ -136,7 +136,7 @@ public class Item {
                 + ", user=" + user
                 + ", car=" + car
                 + ", model=" + model
-                + ", kuzov=" + kuzov
+                + ", body=" + body
                 + ", photo=" + photo
                 + ", mileage=" + mileage
                 + ", status=" + status

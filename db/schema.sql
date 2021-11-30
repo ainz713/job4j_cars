@@ -11,13 +11,13 @@ create table items (
                        user_id INT REFERENCES users(id) NOT NULL,
                        car_id int references cars (id)  not null,
                        model_id int references models (id)  not null,
-                       kuzov_id  int references kuzov (id)   not null,
+                       body_id  int references body (id)   not null,
                        photo_id int references photos (id),
                        mileage int not null,
                        status boolean not null
 );
 
-create table kuzov
+create table body
 (
     id   serial primary key,
     name varchar(50) not null

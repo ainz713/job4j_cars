@@ -23,6 +23,6 @@
         <mapping class="ru.job4j.cars.model.Car" />
         <mapping class="ru.job4j.cars.model.Model" />
         <mapping class="ru.job4j.cars.model.Photo" />
-        <mapping class="ru.job4j.cars.model.Kuzov" />
+        <mapping class="ru.job4j.cars.model.Body" />
     </session-factory>
 </hibernate-configuration>
