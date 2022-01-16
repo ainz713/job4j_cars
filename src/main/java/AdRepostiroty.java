@@ -5,6 +5,7 @@ import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import ru.job4j.cars.model.Item;
+import ru.job4j.cars.store.HbmStore;
 
 import java.util.Calendar;
 import java.util.Collection;
@@ -44,7 +45,7 @@ public class AdRepostiroty {
         return this.tx(
                 session -> session.createQuery(
                         "select distinct st from Item st "
-                                + "join fetch st.car a "
+                                + "join fetch st.brand a "
                                 + "where a.name = :sId", Item.class
                 ).setParameter("sId", name).list()
         );

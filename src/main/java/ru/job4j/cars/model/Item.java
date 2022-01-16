@@ -11,26 +11,29 @@ public class Item {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String description;
     private LocalDateTime created;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "user_id", nullable = false, updatable = false)
     private User user;
 
-    @ManyToOne
-    @JoinColumn(name = "car_id", nullable = false, updatable = false)
-    private Car car;
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "brand_id", nullable = false, updatable = false)
+    private Brand brand;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "model_id", nullable = false, updatable = false)
     private Model model;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "body_id", nullable = false, updatable = false)
     private Body body;
 
-    @OneToOne
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "color_id", nullable = false, updatable = false)
+    private Color color;
+
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "photo_id")
     private Photo photo;
 
@@ -62,12 +65,12 @@ public class Item {
         this.user = user;
     }
 
-    public Car getCar() {
-        return car;
+    public Brand getBrand() {
+        return brand;
     }
 
-    public void setCar(Car car) {
-        this.car = car;
+    public void setBrand(Brand brand) {
+        this.brand = brand;
     }
 
     public Model getModel() {
@@ -110,6 +113,14 @@ public class Item {
         this.status = status;
     }
 
+    public Color getColor() {
+        return color;
+    }
+
+    public void setColor(Color color) {
+        this.color = color;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -132,9 +143,8 @@ public class Item {
         return "Item{"
                 + "id=" + id
                 + ", created=" + created
-                + ", description=" + description
                 + ", user=" + user
-                + ", car=" + car
+                + ", brand=" + brand
                 + ", model=" + model
                 + ", body=" + body
                 + ", photo=" + photo

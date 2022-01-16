@@ -2,25 +2,28 @@ package ru.job4j.cars.model;
 
 import javax.persistence.*;
 import java.util.Objects;
-import java.util.Set;
 
 @Entity
-@Table(name = "cars")
+@Table(name = "brand")
 
-public class Car {
+public class Brand {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     private String name;
 
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "car")
-    private Set<Model> models;
+    public Brand() {
+    }
 
-    public static Car of(String name) {
-        Car car = new Car();
-        car.setName(name);
-        return car;
+    public Brand(String name) {
+        this.name = name;
+    }
+
+    public static Brand of(String name) {
+        Brand brand = new Brand();
+        brand.setName(name);
+        return brand;
     }
 
     public int getId() {
@@ -47,8 +50,8 @@ public class Car {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        Car car = (Car) o;
-        return id == car.id;
+        Brand brand = (Brand) o;
+        return id == brand.id;
     }
 
     @Override

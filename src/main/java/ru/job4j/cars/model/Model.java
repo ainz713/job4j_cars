@@ -1,10 +1,14 @@
 package ru.job4j.cars.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
-@Table(name = "models")
+@Table(name = "model")
 public class Model {
 
     @Id
@@ -14,10 +18,26 @@ public class Model {
     private String name;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "car_id", nullable = false, updatable = false)
-    private Car car;
+    @JoinColumn(name = "brand_id", nullable = false, updatable = false)
+    private Brand brand;
+
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(name = "model_body",
+            joinColumns = {@JoinColumn(name = "model_id", nullable = false, updatable = false)},
+            inverseJoinColumns = {
+                    @JoinColumn(name = "body_id", nullable = false, updatable = false)
+            })
+    private Set<Body> bodies = new HashSet<>();
 
     public Model() {
+    }
+
+    public Set<Body> getBodies() {
+        return bodies;
+    }
+
+    public void setBodies(Set<Body> bodies) {
+        this.bodies = bodies;
     }
 
     public Model(String name) {
@@ -40,12 +60,13 @@ public class Model {
         this.name = name;
     }
 
-    public Car getCar() {
-        return car;
+    @JsonBackReference
+    public Brand getBrand() {
+        return brand;
     }
 
-    public void setCar(Car car) {
-        this.car = car;
+    public void setBrand(Brand brand) {
+        this.brand = brand;
     }
 
     @Override
