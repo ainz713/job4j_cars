@@ -5,7 +5,6 @@ import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import ru.job4j.cars.model.Item;
-import ru.job4j.cars.store.HbmStore;
 
 import java.util.Calendar;
 import java.util.Collection;

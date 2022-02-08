@@ -2,8 +2,7 @@ package ru.job4j.cars.servlet;
 
 import com.google.gson.JsonObject;
 import ru.job4j.cars.model.User;
-import ru.job4j.cars.store.HbmStore;
-
+import ru.job4j.cars.repository.UserRep;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -17,7 +16,7 @@ public class LoginServlet extends HttpServlet {
         JsonObject json = new JsonObject();
         String email = req.getParameter("email");
         String password = req.getParameter("password");
-        User user = HbmStore.instOf().findUserByEmail(email);
+        User user = new UserRep().findUserByEmail(email);
         if (user != null && user.getPassword().equals(password)) {
             req.getSession().setAttribute("user", user);
             json.addProperty("result", true);

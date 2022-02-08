@@ -2,7 +2,6 @@ package ru.job4j.cars.servlet;
 
 import com.google.gson.JsonObject;
 import ru.job4j.cars.model.User;
-
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

@@ -2,8 +2,8 @@ package ru.job4j.cars.servlet;
 
 import com.google.gson.JsonObject;
 import ru.job4j.cars.model.User;
-import ru.job4j.cars.store.HbmStore;
-
+import ru.job4j.cars.repository.HbmStore;
+import ru.job4j.cars.repository.UserRep;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -21,7 +21,7 @@ public class RegServlet extends HttpServlet {
         String email = req.getParameter("email");
         String password = req.getParameter("password");
         var store = HbmStore.instOf();
-        if (store.findUserByEmail(email) != null) {
+        if (new UserRep().findUserByEmail(email) != null) {
             json.addProperty("result", false);
             json.addProperty("msg", "Email уже занят");
         } else {

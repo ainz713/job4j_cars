@@ -1,8 +1,7 @@
 package ru.job4j.cars.servlet;
 
 import ru.job4j.cars.model.Photo;
-import ru.job4j.cars.store.HbmStore;
-
+import ru.job4j.cars.repository.HbmStore;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
